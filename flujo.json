@@ -1,0 +1,123 @@
+{
+  "name": "Palmo - Stock Daily Report",
+  "nodes": [
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "mode": "everyDay",
+              "hour": 8,
+              "minute": 0
+            }
+          ]
+        }
+      },
+      "name": "Cron - 08:00",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "requestMethod": "GET",
+        "url": "https://YOUR_PUBLIC_BACKEND_HOST/stock/predict-stock",
+        "responseFormat": "json",
+        "jsonParameters": false,
+        "options": {}
+      },
+      "name": "Get Stock Prediction",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "return items[0].json.map(item => ({ json: item }));"
+      },
+      "name": "Normalize Response",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"riesgo\"]}}",
+              "operation": "equal",
+              "value2": "HIGH"
+            }
+          ]
+        }
+      },
+      "name": "IF - Risk HIGH",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "sistema@palmo.es",
+        "toEmail": "compras@palmo.es",
+        "subject": "🚨 Alerta automática de stock crítico",
+        "text": "Producto: {{$json[\"referencia\"]}}\nStock actual: {{$json[\"stock_actual\"]}}\nDías restantes: {{$json[\"dias_restantes\"]}}\n\nEl sistema recomienda reposición urgente."
+      },
+      "name": "Send Email Alert",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Cron - 08:00": {
+      "main": [
+        [
+          {
+            "node": "Get Stock Prediction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Stock Prediction": {
+      "main": [
+        [
+          {
+            "node": "Normalize Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Response": {
+      "main": [
+        [
+          {
+            "node": "IF - Risk HIGH",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF - Risk HIGH": {
+      "main": [
+        [
+          {
+            "node": "Send Email Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "1"
+}

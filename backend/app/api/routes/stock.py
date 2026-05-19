@@ -35,7 +35,4 @@ def predict_stock():
         suppliers_df
     )
 
-    return {
-        "status": "success",
-        "data": result.to_dict(orient="records")
-    }
+    return result.to_dict(orient="records")
