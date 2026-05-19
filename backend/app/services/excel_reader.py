@@ -1,5 +1,10 @@
-"""Excel reading utility service."""
+import pandas as pd
 
+def load_sales_data(path):
+    return pd.read_csv(path)
 
-def read_excel(path):
-    return {"data": [], "status": "not implemented"}
+def load_stock_data(path):
+    return pd.read_csv(path)
+
+def load_suppliers_data(path):
+    return pd.read_csv(path)
