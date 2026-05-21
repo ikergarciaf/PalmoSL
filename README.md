@@ -199,6 +199,27 @@ Pasos recomendados:
 4. Ejecutar `python -m pytest`.
 5. Dejar `python scheduler.py` funcionando como servicio con systemd, supervisor, Docker o Programador de tareas de Windows.
 
+## Dashboard web
+
+Puedes ver el panel de control moderno ejecutando:
+
+```powershell
+python app.py
+```
+
+Después abre en el navegador:
+
+```text
+http://localhost:8000
+```
+
+El dashboard muestra:
+
+- Alertas de stock críticas y prioridades.
+- Resumen de productos y proveedores.
+- Últimos emails detectados en modo mock o Gmail.
+- Tabla de alertas consolidadas para compras urgentes.
+
 ## Roadmap
 
 - Dockerfile y docker-compose.

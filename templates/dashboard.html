@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="topbar">
+  <div>
+    <p class="eyebrow">Panel de supervisión</p>
+    <h1>Dashboard Palmo SL</h1>
+    <p class="subtitle">Visión general de atención de emails y gestión de stock en tiempo real.</p>
+  </div>
+  <div class="topbar-actions">
+    <div class="search-box">
+      <input type="search" placeholder="Buscar pedidos, productos o emails" />
+    </div>
+    <div class="status-chip">Actualizado {{ updated_at }}</div>
+  </div>
+</div>
+
+<div class="cards-grid">
+  <article class="card card--primary">
+    <p class="card-title">Alertas de stock</p>
+    <h2>{{ total_alerts }}</h2>
+    <p>Productos con nivel de stock en riesgo y necesidad de reposición.</p>
+  </article>
+  <article class="card card--secondary">
+    <p class="card-title">Productos</p>
+    <h2>{{ total_products }}</h2>
+    <p>Referencias activas en el catálogo de inventario.</p>
+  </article>
+  <article class="card card--secondary">
+    <p class="card-title">Proveedores</p>
+    <h2>{{ total_providers }}</h2>
+    <p>Red de proveedores configurada para reaprovisionamiento.</p>
+  </article>
+  <article class="card card--secondary">
+    <p class="card-title">Ventas previstas</p>
+    <h2>{{ total_sales }}</h2>
+    <p>Unidades vendidas en los datos históricos generados.</p>
+  </article>
+</div>
+
+<div class="overview-grid">
+  <section class="panel panel--wide">
+    <div class="panel-header">
+      <div>
+        <p class="panel-title">Alertas de compra</p>
+        <p class="panel-subtitle">Revisa las prioridades y toma decisiones rápidas.</p>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Prioridad</th>
+            <th>SKU</th>
+            <th>Producto</th>
+            <th>Stock</th>
+            <th>Días</th>
+            <th>Proveedor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for alerta in alerts %}
+          <tr>
+            <td class="status status--{{ alerta.prioridad }}">{{ alerta.prioridad|capitalize }}</td>
+            <td>{{ alerta.sku }}</td>
+            <td>{{ alerta.nombre }}</td>
+            <td>{{ alerta.stock_actual }}</td>
+            <td>{{ alerta.dias_restantes }}</td>
+            <td>{{ alerta.proveedor }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <aside class="panel panel--narrow">
+    <div class="panel-block">
+      <h3>Resumen rápido</h3>
+      <p class="panel-text">Días promedio de stock en alerta: <strong>{{ average_days }}</strong></p>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <strong>{{ critical_alerts }}</strong>
+          <span>Críticas</span>
+        </div>
+        <div class="stat-box">
+          <strong>{{ high_alerts }}</strong>
+          <span>Altas</span>
+        </div>
+        <div class="stat-box">
+          <strong>{{ medium_alerts }}</strong>
+          <span>Medias</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-block panel-block--accent">
+      <h3>Emails recientes</h3>
+      <ul class="email-list">
+        {% for email in recent_emails %}
+        <li>
+          <strong>{{ email.subject }}</strong>
+          <span>{{ email.from_email }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+</div>
+{% endblock %}

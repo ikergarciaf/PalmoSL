@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Palmo SL | Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon">P</div>
+          <div>
+            <p class="brand-name">Palmo SL</p>
+            <p class="brand-tag">Control inteligente</p>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="/" class="nav-item nav-item--active">
+            <span>Inicio</span>
+          </a>
+          <a class="nav-item">
+            <span>Emails</span>
+          </a>
+          <a class="nav-item">
+            <span>Stock</span>
+          </a>
+          <a class="nav-item">
+            <span>Informes</span>
+          </a>
+          <a class="nav-item">
+            <span>Ajustes</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p class="sidebar-footer__label">Sistema</p>
+          <p class="sidebar-footer__value">Automatización + IA</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>
