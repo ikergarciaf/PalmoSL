@@ -18,19 +18,19 @@
         </div>
 
         <nav class="nav-menu">
-          <a href="/" class="nav-item nav-item--active">
+          <a href="{{ url_for('dashboard') }}" class="{% if active_page == 'dashboard' %}nav-item nav-item--active{% else %}nav-item{% endif %}">
             <span>Inicio</span>
           </a>
-          <a class="nav-item">
+          <a href="{{ url_for('emails') }}" class="{% if active_page == 'emails' %}nav-item nav-item--active{% else %}nav-item{% endif %}">
             <span>Emails</span>
           </a>
-          <a class="nav-item">
+          <a href="{{ url_for('stock') }}" class="{% if active_page == 'stock' %}nav-item nav-item--active{% else %}nav-item{% endif %}">
             <span>Stock</span>
           </a>
-          <a class="nav-item">
+          <a href="{{ url_for('reports') }}" class="{% if active_page == 'reports' %}nav-item nav-item--active{% else %}nav-item{% endif %}">
             <span>Informes</span>
           </a>
-          <a class="nav-item">
+          <a href="#" class="nav-item">
             <span>Ajustes</span>
           </a>
         </nav>

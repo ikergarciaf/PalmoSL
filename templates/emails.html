@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="topbar">
+  <div>
+    <p class="eyebrow">Emails</p>
+    <h1>Correos recientes</h1>
+    <p class="subtitle">Visualiza la bandeja de entrada simulada y gestiona la respuesta automática.</p>
+  </div>
+  <div class="topbar-actions">
+    <div class="status-chip">Actualizado {{ updated_at }}</div>
+  </div>
+</div>
+
+<div class="panel panel--wide">
+  <div class="panel-header">
+    <div>
+      <p class="panel-title">Bandeja de correos</p>
+      <p class="panel-subtitle">Últimos emails leídos desde Gmail o desde datos mock.</p>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Recibido</th>
+          <th>Remitente</th>
+          <th>Asunto</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for email in emails %}
+        <tr>
+          <td>{{ email.received_at.strftime('%Y-%m-%d %H:%M') }}</td>
+          <td>{{ email.from_email }}</td>
+          <td>{{ email.subject }}</td>
+          <td><span class="status status--media">Pendiente</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

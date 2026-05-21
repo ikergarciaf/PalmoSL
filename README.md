@@ -220,6 +220,29 @@ El dashboard muestra:
 - Últimos emails detectados en modo mock o Gmail.
 - Tabla de alertas consolidadas para compras urgentes.
 
+## Navegación del panel
+
+El panel web ahora incluye páginas separadas:
+
+- `/` - Visión general del dashboard.
+- `/emails` - Bandeja de entradas y correos recientes.
+- `/stock` - Alertas de stock y métricas de inventario.
+- `/reports` - Enlaces a archivos generados y reportes.
+
+## Uso
+
+Ejecuta el servicio y navega en la barra lateral para cambiar de sección.
+
+```powershell
+python app.py
+```
+
+Abrir:
+
+```text
+http://localhost:8000
+```
+
 ## Roadmap
 
 - Dockerfile y docker-compose.

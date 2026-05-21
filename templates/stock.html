@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="topbar">
+  <div>
+    <p class="eyebrow">Stock</p>
+    <h1>Estado de inventario</h1>
+    <p class="subtitle">Supervisa las alertas de reposición y los productos que requieren acción.</p>
+  </div>
+  <div class="topbar-actions">
+    <div class="status-chip">Actualizado {{ updated_at }}</div>
+  </div>
+</div>
+
+<div class="cards-grid">
+  <article class="card card--primary">
+    <p class="card-title">Productos en alerta</p>
+    <h2>{{ stock_summary.total_alerts }}</h2>
+    <p>Referencias con riesgo de rotura o stock por debajo de los mínimos.</p>
+  </article>
+  <article class="card card--secondary">
+    <p class="card-title">Total de productos</p>
+    <h2>{{ stock_summary.total_products }}</h2>
+    <p>Productos cargados en el catálogo desde CSV.</p>
+  </article>
+  <article class="card card--secondary">
+    <p class="card-title">Proveedores</p>
+    <h2>{{ stock_summary.total_providers }}</h2>
+    <p>Red de proveedores disponibles para reabastecimiento.</p>
+  </article>
+  <article class="card card--secondary">
+    <p class="card-title">Días promedio</p>
+    <h2>{{ stock_summary.average_days }}</h2>
+    <p>Media de días de stock restante en productos con alerta.</p>
+  </article>
+</div>
+
+<div class="panel panel--wide">
+  <div class="panel-header">
+    <div>
+      <p class="panel-title">Alertas de stock</p>
+      <p class="panel-subtitle">Detalle de los productos prioritarios para reposición.</p>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Prioridad</th>
+          <th>SKU</th>
+          <th>Producto</th>
+          <th>Stock</th>
+          <th>Días restantes</th>
+          <th>Proveedor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for alerta in alerts %}
+        <tr>
+          <td class="status status--{{ alerta.prioridad }}">{{ alerta.prioridad|capitalize }}</td>
+          <td>{{ alerta.sku }}</td>
+          <td>{{ alerta.nombre }}</td>
+          <td>{{ alerta.stock_actual }}</td>
+          <td>{{ alerta.dias_restantes }}</td>
+          <td>{{ alerta.proveedor }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

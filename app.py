@@ -2,9 +2,10 @@ from __future__ import annotations
 
 from datetime import datetime
 import logging
+from pathlib import Path
 from typing import Any
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from config import LOGGER_NAME, configure_logging, ensure_runtime_files, get_settings
 from modulo1_email.gmail_client import GmailClient
@@ -43,14 +44,67 @@ def build_dashboard_context(settings: Any) -> dict[str, Any]:
         "average_days": average_days,
         "recent_emails": recent_emails,
         "alerts": alerts[:8],
-        "product_count": len(productos),
-        "provider_count": len(proveedores),
+        "active_page": "dashboard",
+    }
+
+
+def build_emails_context(settings: Any) -> dict[str, Any]:
+    ensure_runtime_files(settings)
+    emails = GmailClient(settings).fetch_unread_emails(limit=20)
+    sorted_emails = sorted(emails, key=lambda email: email.received_at, reverse=True)
+
+    return {
+        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "emails": sorted_emails,
+        "email_count": len(sorted_emails),
+        "active_page": "emails",
+    }
+
+
+def build_stock_context(settings: Any) -> dict[str, Any]:
+    ensure_runtime_files(settings)
+    ventas, productos, proveedores = StockDataLoader(settings).load()
+    predictions = StockPredictor(settings).predict(ventas, productos, proveedores)
+    alerts = StockAlertService(settings).generate_alerts(predictions, proveedores)
+
+    return {
+        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "alerts": alerts,
+        "products": productos,
+        "providers": proveedores,
         "stock_summary": {
-            "on_alert": len(alerts),
             "total_products": len(productos),
             "total_providers": len(proveedores),
-            "average_days": average_days,
+            "total_alerts": len(alerts),
+            "average_days": round(sum(alert.dias_restantes for alert in alerts) / len(alerts), 1) if alerts else 0,
         },
+        "active_page": "stock",
+    }
+
+
+def build_reports_context(settings: Any) -> dict[str, Any]:
+    ensure_runtime_files(settings)
+    base_dir = settings.base_dir
+    return {
+        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "report_files": [
+            {
+                "name": "Alertas de stock CSV",
+                "path": "data/alertas_stock.csv",
+                "exists": (base_dir / "data" / "alertas_stock.csv").exists(),
+            },
+            {
+                "name": "Reporte de stock HTML",
+                "path": "data/reporte_stock.html",
+                "exists": (base_dir / "data" / "reporte_stock.html").exists(),
+            },
+            {
+                "name": "Fallback Google Sheets",
+                "path": "data/google_sheets_fallback.csv",
+                "exists": (base_dir / "data" / "google_sheets_fallback.csv").exists(),
+            },
+        ],
+        "active_page": "reports",
     }
 
 
@@ -59,9 +113,31 @@ def dashboard() -> str:
     settings = get_settings()
     configure_logging(settings)
     logger.info("Generando dashboard")
+    return render_template("dashboard.html", **build_dashboard_context(settings))
 
-    context = build_dashboard_context(settings)
-    return render_template("dashboard.html", **context)
+
+@app.route("/emails")
+def emails() -> str:
+    settings = get_settings()
+    configure_logging(settings)
+    logger.info("Generando pagina de emails")
+    return render_template("emails.html", **build_emails_context(settings))
+
+
+@app.route("/stock")
+def stock() -> str:
+    settings = get_settings()
+    configure_logging(settings)
+    logger.info("Generando pagina de stock")
+    return render_template("stock.html", **build_stock_context(settings))
+
+
+@app.route("/reports")
+def reports() -> str:
+    settings = get_settings()
+    configure_logging(settings)
+    logger.info("Generando pagina de informes")
+    return render_template("reports.html", **build_reports_context(settings))
 
 
 @app.route("/health")
