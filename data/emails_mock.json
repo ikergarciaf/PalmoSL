@@ -1,0 +1,72 @@
+[
+  {
+    "id": "mock-001",
+    "from_email": "cliente1@distribuidor.example",
+    "subject": "Stock toner HP 415A",
+    "body": "Necesitamos 20 unidades de toner compatible HP 415A negro. Confirmad stock y plazo.",
+    "received_at": "2026-05-20T12:57:51"
+  },
+  {
+    "id": "mock-002",
+    "from_email": "cliente2@distribuidor.example",
+    "subject": "Precio para distribuidor",
+    "body": "Buenos dias, podeis indicarnos precio neto del tambor Brother DR2400 para 12 unidades?",
+    "received_at": "2026-05-20T12:40:51"
+  },
+  {
+    "id": "mock-003",
+    "from_email": "cliente3@distribuidor.example",
+    "subject": "Compatibilidad Epson",
+    "body": "El cartucho PAL-EP-TIN-0012 sirve para Epson Workforce 2760?",
+    "received_at": "2026-05-20T12:23:51"
+  },
+  {
+    "id": "mock-004",
+    "from_email": "cliente4@distribuidor.example",
+    "subject": "Estado pedido 45891",
+    "body": "Solicito estado del pedido 45891 realizado la semana pasada.",
+    "received_at": "2026-05-20T12:06:51"
+  },
+  {
+    "id": "mock-005",
+    "from_email": "cliente5@distribuidor.example",
+    "subject": "Reclamacion material defectuoso",
+    "body": "Hemos recibido varios toners con fuga de polvo. Necesitamos solucion urgente.",
+    "received_at": "2026-05-20T11:49:51"
+  },
+  {
+    "id": "mock-006",
+    "from_email": "cliente6@distribuidor.example",
+    "subject": "Consulta varias referencias",
+    "body": "Necesito alternativa para equipos HP, Canon y Brother con entrega esta semana.",
+    "received_at": "2026-05-20T11:32:51"
+  },
+  {
+    "id": "mock-007",
+    "from_email": "cliente7@distribuidor.example",
+    "subject": "Disponibilidad Canon",
+    "body": "Teneis stock de tinta Canon 545 negro? Necesito 35 unidades.",
+    "received_at": "2026-05-20T11:15:51"
+  },
+  {
+    "id": "mock-008",
+    "from_email": "cliente8@distribuidor.example",
+    "subject": "Presupuesto mensual",
+    "body": "Enviadnos presupuesto para 80 unidades de consumibles mixtos para oficina.",
+    "received_at": "2026-05-20T10:58:51"
+  },
+  {
+    "id": "mock-009",
+    "from_email": "cliente9@distribuidor.example",
+    "subject": "Incidencia factura",
+    "body": "La factura del pedido 46210 no coincide con las unidades recibidas.",
+    "received_at": "2026-05-20T10:41:51"
+  },
+  {
+    "id": "mock-010",
+    "from_email": "cliente10@distribuidor.example",
+    "subject": "Reposicion urgente",
+    "body": "Necesitamos toner Kyocera compatible antes del viernes. Indicad opciones disponibles.",
+    "received_at": "2026-05-20T10:24:51"
+  }
+]
