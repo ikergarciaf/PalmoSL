@@ -1,0 +1,58 @@
+[
+  {
+    "id": "PROV001",
+    "nombre": "IberToner Mayoristas",
+    "lead_time_dias": 6,
+    "email": "compras@ibertoner.example",
+    "pedido_minimo": 150.0
+  },
+  {
+    "id": "PROV002",
+    "nombre": "PrintEuropa Distribucion",
+    "lead_time_dias": 9,
+    "email": "pedidos@printeuropa.example",
+    "pedido_minimo": 250.0
+  },
+  {
+    "id": "PROV003",
+    "nombre": "Consumibles Levante",
+    "lead_time_dias": 4,
+    "email": "ventas@consumibleslevante.example",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "PROV004",
+    "nombre": "LaserParts Iberia",
+    "lead_time_dias": 12,
+    "email": "supply@laserparts.example",
+    "pedido_minimo": 300.0
+  },
+  {
+    "id": "PROV005",
+    "nombre": "OfiInk Central",
+    "lead_time_dias": 7,
+    "email": "operaciones@ofiink.example",
+    "pedido_minimo": 180.0
+  },
+  {
+    "id": "PROV006",
+    "nombre": "TonerPro Canal",
+    "lead_time_dias": 5,
+    "email": "canal@tonerpro.example",
+    "pedido_minimo": 120.0
+  },
+  {
+    "id": "PROV007",
+    "nombre": "Repuestos PrintMax",
+    "lead_time_dias": 10,
+    "email": "orders@printmax.example",
+    "pedido_minimo": 220.0
+  },
+  {
+    "id": "PROV008",
+    "nombre": "Distribuciones Grafica Sur",
+    "lead_time_dias": 8,
+    "email": "compras@graficasur.example",
+    "pedido_minimo": 160.0
+  }
+]
