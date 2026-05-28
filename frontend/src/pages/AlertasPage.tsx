@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import type React from 'react'
 import { Info, Package, Mail, Activity, Server, Check } from 'lucide-react'
 import { Badge, Card, SectionHeader, Skeleton, FilterTabs, EmptyState } from '../components/ui'
 import type { AlertRecord } from '../data/mock'

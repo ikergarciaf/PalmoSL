@@ -37,16 +37,16 @@ if (-not $OnlyFrontend) {
 
     # Install deps
     Write-Step "Instalando dependencias Python..."
-    pip install -r requirements.txt --quiet
+    python.exe -m pip install -r requirements.txt --quiet
     Write-Ok "Dependencias instaladas"
 
     if ($Scheduler) {
-        Write-Step "Iniciando scheduler (modo continuo)..."
-        Write-Host "    Emails cada 10 min + stock diario. Ctrl+C para detener." -ForegroundColor Yellow
-        Start-Process -NoNewWindow -FilePath "python" -ArgumentList "scheduler.py"
+        Write-Step 'Iniciando scheduler (modo continuo)...'
+        Write-Host '    Emails cada 10 min + stock diario. Ctrl+C para detener.' -ForegroundColor Yellow
+        Start-Process -NoNewWindow -FilePath 'python.exe' -ArgumentList 'scheduler.py'
     } else {
-        Write-Step "Iniciando API (http://localhost:8000)..."
-        Start-Process -NoNewWindow -FilePath "python" -ArgumentList "api.py"
+        Write-Step 'Iniciando API (http://localhost:8000)...'
+        Start-Process -NoNewWindow -FilePath 'python.exe' -ArgumentList 'api.py'
     }
 
     Pop-Location
@@ -63,14 +63,14 @@ if (-not $OnlyBackend) {
 
     if (-not (Test-Path "node_modules")) {
         Write-Step "Instalando dependencias Node.js..."
-        npm install --silent
+        npm.cmd install --silent
         Write-Ok "Dependencias Node instaladas"
     } else {
         Write-Ok "node_modules ya existe"
     }
 
     Write-Step "Iniciando panel web (http://localhost:5173)..."
-    Start-Process -NoNewWindow -FilePath "npm" -ArgumentList "run dev"
+    Start-Process -NoNewWindow -FilePath "npm.cmd" -ArgumentList "run dev"
     Pop-Location
 
     Start-Sleep -Seconds 3

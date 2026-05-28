@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent
 LOGGER_NAME = "palmo_ia"
+logger = logging.getLogger(LOGGER_NAME)
 
 
 @dataclass(frozen=True)
@@ -97,7 +98,6 @@ def configure_logging(settings: Settings | None = None) -> logging.Logger:
 
     resolved = settings or get_settings()
     resolved.logs_dir.mkdir(parents=True, exist_ok=True)
-    logger = logging.getLogger(LOGGER_NAME)
     logger.setLevel(logging.INFO)
 
     if logger.handlers:
@@ -117,7 +117,7 @@ def configure_logging(settings: Settings | None = None) -> logging.Logger:
 
 
 def ensure_runtime_files(settings: Settings | None = None) -> None:
-    """Crea directorios y datos mock funcionales si faltan."""
+    """Crea directorios y datos funcionales si faltan."""
 
     resolved = settings or get_settings()
     for directory in [
@@ -129,14 +129,22 @@ def ensure_runtime_files(settings: Settings | None = None) -> None:
     ]:
         directory.mkdir(parents=True, exist_ok=True)
 
-    if _csv_needs_generation(resolved.csv_productos, minimum_rows=500):
-        _generate_products(resolved.csv_productos, resolved.json_proveedores)
+    excel_path = resolved.base_dir / "data" / "stock_real.xlsx"
+    excel_imported = False
+    if excel_path.exists():
+        try:
+            from modulo2_stock.excel_importer import run_import as excel_import
+            excel_imported = excel_import(excel_path, resolved.csv_productos.parent)
+        except Exception:
+            logger.exception("Error importando Excel real; usando datos mock")
 
-    if _csv_needs_generation(resolved.csv_ventas, minimum_rows=5000):
-        _generate_sales(resolved.csv_ventas, resolved.csv_productos)
-
-    if _json_needs_generation(resolved.json_proveedores, minimum_items=8):
-        _generate_providers(resolved.json_proveedores)
+    if not excel_imported:
+        if _csv_needs_generation(resolved.csv_productos, minimum_rows=500):
+            _generate_products(resolved.csv_productos, resolved.json_proveedores)
+        if _csv_needs_generation(resolved.csv_ventas, minimum_rows=5000):
+            _generate_sales(resolved.csv_ventas, resolved.csv_productos)
+        if _json_needs_generation(resolved.json_proveedores, minimum_items=8):
+            _generate_providers(resolved.json_proveedores)
 
     if _json_needs_generation(resolved.emails_mock, minimum_items=10):
         _generate_mock_emails(resolved.emails_mock)

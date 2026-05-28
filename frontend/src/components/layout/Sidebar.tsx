@@ -35,11 +35,11 @@ export default function Sidebar({ activePage, onNavigate, open, onClose }: Sideb
           'transition-transform duration-200 ease-in-out lg:translate-x-0',
           open ? 'translate-x-0' : '-translate-x-full'
         )}
-        style={{ width: 250 }}
+        style={{ width: 280 }}
       >
         {/* Logo */}
         <div className="flex items-center justify-center px-4 h-14 border-b border-stone-100 flex-shrink-0">
-          <div className="overflow-hidden flex items-center justify-center h-full" style={{ width: '75%' }}>
+          <div className="overflow-hidden flex items-center justify-center h-full" style={{ width: '80%' }}>
             <img
               src={palmoLogo}
               alt="Palmo Suministro Integral"

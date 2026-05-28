@@ -54,7 +54,7 @@ Copia `backend/.env.example` → `backend/.env` y rellena:
 
 | Variable | Descripción |
 |---|---|
-| `ANTHROPIC_API_KEY` | Clave de Claude AI (opcional — sin ella usa modo demo) |
+| `GEMINI_API_KEY` | Clave de Google Gemini (opcional — sin ella usa modo demo) |
 | `GMAIL_CREDENTIALS_FILE` | Credenciales Gmail OAuth2 |
 | `EMAIL_ATENCION_CLIENTE` | Dirección de envío al cliente |
 | `EMAIL_ESCALADO` | Dirección para emails escalados |
@@ -102,7 +102,7 @@ pytest tests/ -v
 
 ## Modo demo
 
-Si no hay `ANTHROPIC_API_KEY` configurada, el sistema arranca en **modo demo**:
+Si no hay `GEMINI_API_KEY` configurada, el sistema arranca en **modo demo**:
 - La IA usa clasificación por reglas de palabras clave
 - Los emails se leen desde `data/emails_mock.json`
 - El stock se calcula con datos sintéticos generados automáticamente

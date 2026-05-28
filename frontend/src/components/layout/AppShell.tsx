@@ -45,7 +45,7 @@ export default function AppShell({ children }: AppShellProps) {
       />
 
       {/* Main content — offset by sidebar width */}
-      <div className="lg:ml-[250px] min-h-screen flex flex-col">
+      <div className="lg:ml-[280px] min-h-screen flex flex-col">
 
         {/* Topbar */}
         <header className="sticky top-0 z-20 bg-white border-b border-stone-200 px-4 md:px-6 h-12 flex items-center gap-3">

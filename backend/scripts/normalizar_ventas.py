@@ -88,7 +88,7 @@ def normalize_sales_data(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, Any]
 
     # Validar SKU
     df_norm["sku"] = df_norm["sku"].astype(str).str.strip().str.upper()
-    invalid_skus = (df_norm["sku"] == "") | (df_norm["sku"].isna()).sum()
+    invalid_skus = ((df_norm["sku"] == "") | df_norm["sku"].isna()).sum()
     stats["invalid_skus"] = invalid_skus
 
     # Validar cantidad
@@ -97,7 +97,7 @@ def normalize_sales_data(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, Any]
     except Exception as e:
         logger.warning("Error normalizando cantidad: %s", e)
 
-    invalid_quantities = (df_norm["cantidad"] <= 0) | (df_norm["cantidad"].isna()).sum()
+    invalid_quantities = ((df_norm["cantidad"] <= 0) | df_norm["cantidad"].isna()).sum()
     stats["invalid_quantities"] = invalid_quantities
 
     # Eliminar registros inválidos

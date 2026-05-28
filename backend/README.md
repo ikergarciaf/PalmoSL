@@ -124,7 +124,7 @@ copy .env.example .env
 Variables disponibles:
 
 ```env
-ANTHROPIC_API_KEY=
+GEMINI_API_KEY=
 GMAIL_CREDENTIALS_FILE=
 GMAIL_TOKEN_FILE=
 EMAIL_ATENCION_CLIENTE=atencion@palmosuministro.es

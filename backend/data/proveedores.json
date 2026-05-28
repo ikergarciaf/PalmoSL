@@ -1,58 +1,310 @@
 [
   {
-    "id": "PROV001",
-    "nombre": "IberToner Mayoristas",
-    "lead_time_dias": 6,
-    "email": "compras@ibertoner.example",
-    "pedido_minimo": 150.0
-  },
-  {
-    "id": "PROV002",
-    "nombre": "PrintEuropa Distribucion",
-    "lead_time_dias": 9,
-    "email": "pedidos@printeuropa.example",
-    "pedido_minimo": 250.0
-  },
-  {
-    "id": "PROV003",
-    "nombre": "Consumibles Levante",
-    "lead_time_dias": 4,
-    "email": "ventas@consumibleslevante.example",
+    "id": "P100005",
+    "nombre": "UFP ESPAÑA SA",
+    "lead_time_dias": 7,
+    "email": "compras@ufpespañasa.es",
     "pedido_minimo": 100.0
   },
   {
-    "id": "PROV004",
-    "nombre": "LaserParts Iberia",
-    "lead_time_dias": 12,
-    "email": "supply@laserparts.example",
-    "pedido_minimo": 300.0
+    "id": "P100031",
+    "nombre": "ESPRINET IBERICA SL",
+    "lead_time_dias": 4,
+    "email": "compras@esprinetibericasl.es",
+    "pedido_minimo": 100.0
   },
   {
-    "id": "PROV005",
-    "nombre": "OfiInk Central",
+    "id": "P100049",
+    "nombre": "INGRAM MICRO SLU",
+    "lead_time_dias": 14,
+    "email": "compras@ingrammicroslu.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P100063",
+    "nombre": "REPROVIGO EXPORT SL",
+    "lead_time_dias": 2,
+    "email": "compras@reprovigoexportsl.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P100068",
+    "nombre": "GENERAL PLASTIC INDUSTRIAL CO., LTD",
+    "lead_time_dias": 75,
+    "email": "compras@generalplasticindustrialco.,ltd.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P100079",
+    "nombre": "RAVEN INDUSTRIES, INC",
+    "lead_time_dias": 75,
+    "email": "compras@ravenindustries,inc.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P100081",
+    "nombre": "GRUPO EXPERIENCIA RESPONSABILIDAD E INNOVACION SL",
+    "lead_time_dias": 4,
+    "email": "compras@grupoexperienciaresponsabilidadeinnovacionsl.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P100086",
+    "nombre": "TOMOEGAWA EUROPE B.V.",
+    "lead_time_dias": 18,
+    "email": "compras@tomoegawaeuropeb.v..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P110016",
+    "nombre": "TD SYNNEX Spain, S.L.UNIP.",
+    "lead_time_dias": 4,
+    "email": "compras@tdsynnexspain,s.l.unip..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P110038",
+    "nombre": "XEROX ESPAÑA, S.A.U.",
+    "lead_time_dias": 4,
+    "email": "compras@xeroxespaña,s.a.u..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120063",
+    "nombre": "HK HAOYINBAO GROUP CO, LTD",
+    "lead_time_dias": 18,
+    "email": "compras@hkhaoyinbaogroupco,ltd.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120090",
+    "nombre": "SUPPLYTEK INTERNACIONAL LLC",
+    "lead_time_dias": 18,
+    "email": "compras@supplytekinternacionalllc.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120144",
+    "nombre": "TUTU CREATIVE HK TRADING LIMITED",
+    "lead_time_dias": 18,
+    "email": "compras@tutucreativehktradinglimited.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120160",
+    "nombre": "ARLES, S.R.O.",
+    "lead_time_dias": 18,
+    "email": "compras@arles,s.r.o..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120161",
+    "nombre": "Argo Trading Osaühing",
+    "lead_time_dias": 18,
+    "email": "compras@argotradingosaühing.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120170",
+    "nombre": "SINOTRON UNITED PTE LTD",
+    "lead_time_dias": 2,
+    "email": "compras@sinotronunitedpteltd.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120189",
+    "nombre": "NINESTAR IMAGE TECH LIMITED",
+    "lead_time_dias": 18,
+    "email": "compras@ninestarimagetechlimited.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120214",
+    "nombre": "FUJI ELECTRIC EUROPE GmbH",
+    "lead_time_dias": 2,
+    "email": "compras@fujielectriceuropegmbh.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120230",
+    "nombre": "FORBEST IMAGE B.V.",
+    "lead_time_dias": 18,
+    "email": "compras@forbestimageb.v..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120249",
+    "nombre": "MINCOH TONER SL",
+    "lead_time_dias": 75,
+    "email": "compras@mincohtonersl.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120277",
+    "nombre": "STATIC CONTROL COMPONENTS EUROPE LTD",
+    "lead_time_dias": 18,
+    "email": "compras@staticcontrolcomponentseuropeltd.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120281",
+    "nombre": "BIUROMAX SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+    "lead_time_dias": 18,
+    "email": "compras@biuromaxspółkazograniczonąodpowiedzialnością.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120283",
+    "nombre": "INCHECA SL",
     "lead_time_dias": 7,
-    "email": "operaciones@ofiink.example",
-    "pedido_minimo": 180.0
+    "email": "compras@inchecasl.es",
+    "pedido_minimo": 100.0
   },
   {
-    "id": "PROV006",
-    "nombre": "TonerPro Canal",
-    "lead_time_dias": 5,
-    "email": "canal@tonerpro.example",
-    "pedido_minimo": 120.0
+    "id": "P120292",
+    "nombre": "GLOBAL PIECES",
+    "lead_time_dias": 32,
+    "email": "compras@globalpieces.es",
+    "pedido_minimo": 100.0
   },
   {
-    "id": "PROV007",
-    "nombre": "Repuestos PrintMax",
+    "id": "P120297",
+    "nombre": "Topus sp. z o.o",
+    "lead_time_dias": 4,
+    "email": "compras@topussp.zo.o.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120324",
+    "nombre": "INTEGRAL GMBH",
     "lead_time_dias": 10,
-    "email": "orders@printmax.example",
-    "pedido_minimo": 220.0
+    "email": "compras@integralgmbh.es",
+    "pedido_minimo": 100.0
   },
   {
-    "id": "PROV008",
-    "nombre": "Distribuciones Grafica Sur",
-    "lead_time_dias": 8,
-    "email": "compras@graficasur.example",
-    "pedido_minimo": 160.0
+    "id": "P120327",
+    "nombre": "WEI CHUANG CO., LIMITED",
+    "lead_time_dias": 2,
+    "email": "compras@weichuangco.,limited.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120337",
+    "nombre": "IMCOPEX GmbH",
+    "lead_time_dias": 18,
+    "email": "compras@imcopexgmbh.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120343",
+    "nombre": "Aster Technology Holland B.V.",
+    "lead_time_dias": 2,
+    "email": "compras@astertechnologyhollandb.v..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120354",
+    "nombre": "Olivetti S.p.A",
+    "lead_time_dias": 18,
+    "email": "compras@olivettis.p.a.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120377",
+    "nombre": "SAVE4PRINT SL",
+    "lead_time_dias": 7,
+    "email": "compras@save4printsl.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120379",
+    "nombre": "Techtrading, Inc",
+    "lead_time_dias": 18,
+    "email": "compras@techtrading,inc.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120390",
+    "nombre": "KARKEMIS MEDIOAMBIENTAL SL",
+    "lead_time_dias": 18,
+    "email": "compras@karkemismedioambientalsl.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120403",
+    "nombre": "AXRO GmbH",
+    "lead_time_dias": 18,
+    "email": "compras@axrogmbh.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120408",
+    "nombre": "LEXMARK ESPAÑA SL",
+    "lead_time_dias": 4,
+    "email": "compras@lexmarkespañasl.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120411",
+    "nombre": "CARLOS MANUEL MARTINS DOS SANTOS UNIPESSOAL LDA",
+    "lead_time_dias": 18,
+    "email": "compras@carlosmanuelmartinsdossantosunipessoallda.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120451",
+    "nombre": "ATRAMENTUM",
+    "lead_time_dias": 4,
+    "email": "compras@atramentum.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120455",
+    "nombre": "GO Supplies AG",
+    "lead_time_dias": 2,
+    "email": "compras@gosuppliesag.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120463",
+    "nombre": "INKLOUD 2 SPAIN SL UNIPERSONAL",
+    "lead_time_dias": 18,
+    "email": "compras@inkloud2spainslunipersonal.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120493",
+    "nombre": "GENERAL PLASTIC INDUSTRIAL CO., LTD",
+    "lead_time_dias": 18,
+    "email": "compras@generalplasticindustrialco.,ltd.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120513",
+    "nombre": "GENERAL MACHINES TECHNOLOGY S.L.",
+    "lead_time_dias": 18,
+    "email": "compras@generalmachinestechnologys.l..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120526",
+    "nombre": "SIDICOIM SL",
+    "lead_time_dias": 4,
+    "email": "compras@sidicoimsl.es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120542",
+    "nombre": "Seine (Holland) B.V.",
+    "lead_time_dias": 18,
+    "email": "compras@seine(holland)b.v..es",
+    "pedido_minimo": 100.0
+  },
+  {
+    "id": "P120546",
+    "nombre": "I.R. ITALIANA RIPROGRAFIA SRL",
+    "lead_time_dias": 18,
+    "email": "compras@i.r.italianariprografiasrl.es",
+    "pedido_minimo": 100.0
   }
 ]

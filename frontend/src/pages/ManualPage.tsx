@@ -1,10 +1,10 @@
-import React from 'react'
+import { useState } from 'react'
+import type React from 'react'
 import {
   BookOpen, Mail, Package, Bell, LayoutDashboard,
   Play, RefreshCw, ExternalLink, CheckCircle,
   AlertTriangle, Info, ChevronDown,
 } from 'lucide-react'
-import { useState } from 'react'
 import { Card } from '../components/ui'
 
 const sections = [

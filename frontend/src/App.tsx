@@ -1,3 +1,4 @@
+import type React from 'react'
 import { NotificationProvider } from './context/notifications'
 import AppShell from './components/layout/AppShell'
 import DashboardPage from './pages/DashboardPage'
