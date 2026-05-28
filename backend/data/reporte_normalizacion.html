@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Reporte de Normalización SAP Ventas</title>
+<style>
+body { font-family: system-ui, sans-serif; margin: 2rem; background: #f5f5f4; }
+.header { background: #1a1a1a; color: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+.section { background: white; border: 1px solid #d4d4d4; border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem; }
+.metric { display: inline-block; min-width: 200px; margin: 0.5rem; }
+.metric-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 500; }
+.metric-value { font-size: 2rem; font-weight: bold; color: #1a1a1a; }
+.success { color: #059669; }
+.warning { color: #d97706; }
+.error { color: #dc2626; }
+table { width: 100%; border-collapse: collapse; }
+th { background: #f3f4f6; padding: 0.75rem; text-align: left; font-size: 0.85rem; font-weight: 600; }
+td { padding: 0.75rem; border-bottom: 1px solid #e5e7eb; }
+tr:hover { background: #fafafa; }
+</style>
+</head>
+<body>
+<div class='header'>
+<h1>Reporte de Normalización — Ventas SAP</h1>
+<p>Generado: 2026-05-21 21:02:09</p>
+</div>
+<div class='section'>
+<h2>Resumen de Calidad</h2>
+<div>
+<div class='metric'><div class='metric-label'>Filas Originales</div><div class='metric-value'>154,169</div></div>
+<div class='metric'><div class='metric-label'>Filas Limpias</div><div class='metric-value success'>154,169</div></div>
+<div class='metric'><div class='metric-label'>Tasa Limpieza</div><div class='metric-value success'>100.0%</div></div>
+</div>
+</div>
+<div class='section'>
+<h2>Problemas Detectados</h2>
+<table>
+<thead><tr><th>Problema</th><th>Cantidad</th><th>Impacto</th></tr></thead>
+<tbody>
+<tr><td>Fechas inválidas</td><td>0</td><td>Eliminadas</td></tr>
+<tr><td>SKUs vacíos o inválidos</td><td>0         False
+1         False
+2         False
+3         False
+4         False
+          ...  
+154164    False
+154165    False
+154166    False
+154167    False
+154168    False
+Name: sku, Length: 154169, dtype: bool</td><td>Eliminadas</td></tr>
+<tr><td>Cantidades inválidas (≤0)</td><td>0         False
+1         False
+2         False
+3         False
+4         False
+          ...  
+154164    False
+154165    False
+154166    False
+154167    False
+154168    False
+Name: cantidad, Length: 154169, dtype: bool</td><td>Eliminadas</td></tr>
+<tr><td>Duplicados exactos</td><td>0</td><td>Deduplicados</td></tr>
+</tbody>
+</table>
+</div>
+<div class='section'>
+<h2>Análisis Temporal</h2>
+<table>
+<thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
+<tbody>
+<tr><td>Fecha mínima</td><td>2024-05-01</td></tr>
+<tr><td>Fecha máxima</td><td>2026-05-20</td></tr>
+<tr><td>Rango (días)</td><td>749</td></tr>
+</tbody>
+</table>
+</div>
+<div class='section'>
+<h2>Distribución por SKU (top 20)</h2>
+<table>
+<thead><tr><th>SKU</th><th>Filas</th><th>Cantidad Total</th></tr></thead>
+<tbody>
+<tr><td>PAL-BR-CIN-0036</td><td>618</td><td>3541</td></tr>
+<tr><td>PAL-SA-KIT-0056</td><td>603</td><td>3470</td></tr>
+<tr><td>PAL-XE-TON-0112</td><td>609</td><td>3469</td></tr>
+<tr><td>PAL-SA-TAM-0433</td><td>618</td><td>3449</td></tr>
+<tr><td>PAL-CA-TAM-0336</td><td>611</td><td>3441</td></tr>
+<tr><td>PAL-HP-KIT-0111</td><td>599</td><td>3432</td></tr>
+<tr><td>PAL-CA-TAM-0450</td><td>604</td><td>3398</td></tr>
+<tr><td>PAL-XE-KIT-0349</td><td>599</td><td>3392</td></tr>
+<tr><td>PAL-KY-TAM-0412</td><td>611</td><td>3390</td></tr>
+<tr><td>PAL-SA-CIN-0159</td><td>614</td><td>3387</td></tr>
+<tr><td>PAL-CA-KIT-0459</td><td>604</td><td>3376</td></tr>
+<tr><td>PAL-EP-CIN-0273</td><td>602</td><td>3331</td></tr>
+<tr><td>PAL-LE-KIT-0498</td><td>604</td><td>3328</td></tr>
+<tr><td>PAL-BR-TAM-0115</td><td>602</td><td>3321</td></tr>
+<tr><td>PAL-HP-FUS-0353</td><td>576</td><td>3307</td></tr>
+<tr><td>PAL-EP-CIN-0302</td><td>603</td><td>3301</td></tr>
+<tr><td>PAL-KY-KIT-0151</td><td>601</td><td>3300</td></tr>
+<tr><td>PAL-CA-TIN-0278</td><td>578</td><td>3290</td></tr>
+<tr><td>PAL-EP-KIT-0354</td><td>588</td><td>3272</td></tr>
+<tr><td>PAL-KY-FUS-0012</td><td>589</td><td>3255</td></tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

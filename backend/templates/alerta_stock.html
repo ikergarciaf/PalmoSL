@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Alertas de stock - Palmo Suministro Integral</title>
+    <style>
+      body { font-family: Arial, sans-serif; color: #1f2937; margin: 24px; }
+      h1 { font-size: 22px; margin-bottom: 4px; }
+      p { color: #4b5563; }
+      table { border-collapse: collapse; width: 100%; margin-top: 18px; }
+      th, td { border: 1px solid #d1d5db; padding: 8px; text-align: left; font-size: 13px; }
+      th { background: #f3f4f6; }
+      .critica { color: #b91c1c; font-weight: 700; }
+      .alta { color: #c2410c; font-weight: 700; }
+      .media { color: #92400e; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <h1>Alertas de stock</h1>
+    <p>Resumen automatico generado para compras de Palmo Suministro Integral.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Prioridad</th>
+          <th>SKU</th>
+          <th>Producto</th>
+          <th>Proveedor</th>
+          <th>Stock</th>
+          <th>Dias restantes</th>
+          <th>Lead time</th>
+          <th>Reposicion sugerida</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for alerta in alertas %}
+        <tr>
+          <td class="{{ alerta.prioridad }}">{{ alerta.prioridad|upper }}</td>
+          <td>{{ alerta.sku }}</td>
+          <td>{{ alerta.nombre }}</td>
+          <td>{{ alerta.proveedor }}</td>
+          <td>{{ alerta.stock_actual }}</td>
+          <td>{{ "%.1f"|format(alerta.dias_restantes) }}</td>
+          <td>{{ alerta.lead_time_dias }}</td>
+          <td>{{ alerta.reposicion_sugerida }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
