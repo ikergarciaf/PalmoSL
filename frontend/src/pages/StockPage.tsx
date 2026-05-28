@@ -23,7 +23,6 @@ export default function StockPage() {
   const [search, setSearch]         = useState('')
 
   useEffect(() => {
-    setLoading(true)
     fetchStock().then(data => {
       setStock(data as StockRecord[])
       setLoading(false)

@@ -43,7 +43,6 @@ export default function AlertasPage() {
   const { alertaReadIds, markAlertaRead, markAllAlertasRead } = useNotifications()
 
   useEffect(() => {
-    setLoading(true)
     fetchAlertas().then(data => {
       setAlertas(data as AlertRecord[])
       setLoading(false)

@@ -150,10 +150,11 @@ function QueEsSection() {
           <li><strong>Backend</strong> — el cerebro. Procesa emails, calcula predicciones y genera alertas.</li>
           <li><strong>Panel web</strong> — la pantalla que estás viendo ahora. Muestra toda la información de forma clara para que puedas tomar decisiones.</li>
         </ul>
+        <p className="mt-2">Usa el menú lateral para navegar entre las secciones: <strong>Dashboard</strong>, <strong>Emails IA</strong>, <strong>Stock y Predicción</strong>, <strong>Alertas</strong> y este <strong>Manual de uso</strong>.</p>
       </HighlightBox>
 
       <HighlightBox icon={CheckCircle} title="Modo demo vs. Modo real">
-        Cuando no hay credenciales configuradas (API de Gmail, clave de Anthropic, etc.),
+        Cuando no hay credenciales configuradas (API de Gmail, clave de Gemini, etc.),
         el sistema trabaja con <strong>datos de ejemplo</strong> para que puedas probar todas las funciones
         sin riesgo. Cuando conectes los servicios reales, cambiará automáticamente.
       </HighlightBox>
@@ -376,10 +377,13 @@ function ConfiguracionSection() {
       <SubTitle>Variables principales</SubTitle>
       <div className="bg-stone-50 rounded-lg p-4 mb-4 text-[12px] font-mono text-stone-600 space-y-2">
         {[
-          ['ANTHROPIC_API_KEY',       'Clave para usar la IA de Claude. Sin ella se usan reglas básicas.'],
+          ['GEMINI_API_KEY',          'Clave de Google Gemini para la IA. Sin ella se usan reglas básicas (modo demo).'],
           ['GMAIL_CREDENTIALS_FILE',  'Credenciales Gmail OAuth2. Sin ellas, los emails son simulados.'],
           ['EMAIL_ATENCION_CLIENTE',  'Dirección desde la que se envían las respuestas a clientes.'],
           ['EMAIL_ESCALADO',          'Dirección a la que llegan los correos que requieren intervención humana.'],
+          ['EMAIL_COMPRAS',           'Dirección del departamento de compras (para alertas de stock).'],
+          ['SHEETS_CREDENTIALS_FILE', 'Credenciales Google Sheets para exportar datos a Drive.'],
+          ['SHEETS_ID',               'ID del documento Google Sheets donde se exportan las alertas.'],
           ['HORA_EJECUCION_STOCK',    'Hora diaria para calcular las predicciones de stock (ej. 07:30).'],
           ['DIAS_MARGEN_SEGURIDAD',   'Días extra de stock que quieres mantener como colchón de seguridad.'],
           ['SEMANAS_HISTORICO',       'Cuántas semanas atrás mira el sistema para calcular la demanda.'],
@@ -426,6 +430,10 @@ const faqs = [
   {
     q: '¿Dónde están los datos de los clientes y productos?',
     a: 'En modo demo se generan automáticamente datos ficticios. En producción, los datos se importan desde los CSV que exportas de SAP Business One. No se almacena nada en la nube: todo está en tu máquina o servidor.',
+  },
+  {
+    q: '¿Cómo navego entre las secciones de la aplicación?',
+    a: 'Usa el menú lateral izquierdo. Verás los iconos de Dashboard, Emails IA, Stock y Predicción, Alertas y Manual de uso. Pulsa en cualquiera para cambiar de pantalla al instante.',
   },
 ]
 

@@ -28,12 +28,7 @@ export default function DashboardPage() {
     setTimeout(() => setToast(null), 3500)
   }
 
-  const load = async () => {
-    setLoading(true)
-    const d = await fetchDashboard()
-    setData(d as DashboardData)
-    setLoading(false)
-  }
+  const load = () => fetchDashboard().then(d => { setData(d as DashboardData); setLoading(false) })
 
   useEffect(() => { load() }, [])
 

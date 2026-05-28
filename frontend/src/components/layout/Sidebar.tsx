@@ -35,31 +35,27 @@ export default function Sidebar({ activePage, onNavigate, open, onClose }: Sideb
           'transition-transform duration-200 ease-in-out lg:translate-x-0',
           open ? 'translate-x-0' : '-translate-x-full'
         )}
-        style={{ width: 220 }}
+        style={{ width: 250 }}
       >
         {/* Logo */}
-        <div className="flex items-center justify-between px-4 h-14 border-b border-stone-100 flex-shrink-0">
-          <div className="flex items-center gap-2.5">
+        <div className="flex items-center justify-center px-4 h-14 border-b border-stone-100 flex-shrink-0">
+          <div className="overflow-hidden flex items-center justify-center h-full" style={{ width: '75%' }}>
             <img
               src={palmoLogo}
               alt="Palmo Suministro Integral"
-              className="h-9 w-auto object-contain"
+              className="w-full h-full object-cover object-center"
             />
-            <div>
-              <p className="text-[13px] font-semibold text-stone-800 leading-tight">Palmo IA</p>
-              <p className="text-[9px] text-stone-400 leading-tight">Panel de gestión</p>
-            </div>
           </div>
           <button
             onClick={onClose}
-            className="lg:hidden p-1 text-stone-400 hover:text-stone-600 transition-colors rounded"
+            className="lg:hidden absolute right-4 p-1 text-stone-400 hover:text-stone-600 transition-colors rounded"
           >
             <X size={15} />
           </button>
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 overflow-y-auto py-2 px-2">
+        <nav className="flex-1 overflow-y-auto pt-6 pb-2 px-2">
           <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wide px-3 py-2">
             Menú principal
           </p>

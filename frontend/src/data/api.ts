@@ -5,7 +5,7 @@ import {
   alertasData,
 } from './mock'
 
-const API_BASE = (import.meta as any).env?.VITE_API_URL ?? 'http://localhost:8000'
+const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
 
 async function apiFetch<T>(path: string, fallback: T, timeoutMs = 8000): Promise<T> {
   try {
@@ -50,8 +50,8 @@ export async function triggerEmailRun(): Promise<{ ok: boolean; emails_procesado
       signal: AbortSignal.timeout(30000),
     })
     return res.ok ? res.json() : { ok: false, error: `HTTP ${res.status}` }
-  } catch (e: any) {
-    return { ok: false, error: e?.message ?? 'Backend no disponible' }
+  } catch (e: unknown) {
+    return { ok: false, error: e instanceof Error ? e.message : 'Backend no disponible' }
   }
 }
 
@@ -67,8 +67,8 @@ export async function triggerStockRun(): Promise<{ ok: boolean; alertas_generada
       signal: AbortSignal.timeout(60000),
     })
     return res.ok ? res.json() : { ok: false, error: `HTTP ${res.status}` }
-  } catch (e: any) {
-    return { ok: false, error: e?.message ?? 'Backend no disponible' }
+  } catch (e: unknown) {
+    return { ok: false, error: e instanceof Error ? e.message : 'Backend no disponible' }
   }
 }
 

@@ -41,7 +41,6 @@ export default function EmailsPage() {
   const [detailEmail, setDetailEmail]   = useState<EmailRecord | null>(null)
 
   useEffect(() => {
-    setLoading(true)
     fetchEmails().then(data => {
       setEmails(data as EmailRecord[])
       setLoading(false)
